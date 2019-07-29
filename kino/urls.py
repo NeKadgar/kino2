@@ -18,9 +18,12 @@ from django.urls import path, include, re_path
 from api.urls import router
 from django.conf import settings
 from django.conf.urls.static import static
+from activate.views import myview
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('bsiua523hntv2.txt', myview),
+    path('bsiua523hntv2.txt/', myview),
     path('api/', include(router.urls)),
     path('movie/', include('api.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
