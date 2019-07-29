@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django_filters',
     'api',
     'start',
-    'activate',
 ]
 
 MIDDLEWARE = [
