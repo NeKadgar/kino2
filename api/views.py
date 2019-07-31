@@ -1,5 +1,5 @@
-from .models import movie, Top250, BestSerials
-from .serializers import MovieSerializer, Top250Serializer, BestSerialsSerializer
+from .models import movie, Top250, BestSerials, Serials, Anime
+from .serializers import MovieSerializer, Top250Serializer, BestSerialsSerializer, SerialsSerializer, AnimeSerializer
 from rest_framework import authentication, permissions, viewsets, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status
@@ -8,11 +8,11 @@ from rest_framework.response import Response
 
 # Create your views here.
 class DefaultMixin(object):
-	filter_backends = (
-		DjangoFilterBackend,
-		filters.SearchFilter,
-		filters.OrderingFilter,
-	)
+    filter_backends = (
+        DjangoFilterBackend,
+        filters.SearchFilter,
+        filters.OrderingFilter,
+    )
 
 class MovieViewSet(DefaultMixin, viewsets.ReadOnlyModelViewSet):
     queryset = movie.objects.order_by('-id')
@@ -33,6 +33,40 @@ class BestSerialsViewSet(DefaultMixin, viewsets.ReadOnlyModelViewSet):
     serializer_class = BestSerialsSerializer
     search_fields = ('title', 'year', 'genre1', 'country' )
     ordering_fields = ('id', 'rank')
+
+class SerialsViewSet(DefaultMixin, viewsets.ReadOnlyModelViewSet):
+    queryset = Serials.objects.order_by('id')
+    serializer_class = SerialsSerializer
+    search_fields = ('title', 'year', 'genre1', 'country' )
+    ordering_fields = ('id', 'rank')
+
+class AnimeViewSet(DefaultMixin, viewsets.ReadOnlyModelViewSet):
+    queryset = Anime.objects.order_by('id')
+    serializer_class = AnimeSerializer
+    search_fields = ('title', 'year', 'genre1', 'country' )
+    ordering_fields = ('id', 'rank')
+
+@api_view(['GET'])
+def Anime_detail(request, pk):
+    try:
+        snippet = Anime.objects.get(pk=pk)
+    except Snippet.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = AnimeSerializer(snippet)
+        return Response(serializer.data)
+
+@api_view(['GET'])
+def Serials_detail(request, pk):
+    try:
+        snippet = Serials.objects.get(pk=pk)
+    except Snippet.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = SerialsSerializer(snippet)
+        return Response(serializer.data)
 
 @api_view(['GET'])
 def BestSerials_detail(request, pk):

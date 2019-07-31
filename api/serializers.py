@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import movie, Top250, BestSerials
+from .models import movie, Top250, BestSerials, Serials, Anime
 
 
 class MovieSerializer(serializers.ModelSerializer):
@@ -17,4 +17,14 @@ class Top250Serializer(serializers.ModelSerializer):
 class BestSerialsSerializer(serializers.ModelSerializer):
     class Meta:
         model = BestSerials
+        fields = ('id', 'title', 'description','image','video', 'rank', 'year','long','country', 'time', 'genre1','genre2', 'genre3','serial')
+
+class SerialsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Serials
+        fields = ('id', 'title', 'description','image','video', 'rank', 'year','long','country', 'time', 'genre1','genre2', 'genre3','serial')
+
+class AnimeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Anime
         fields = ('id', 'title', 'description','image','video', 'rank', 'year','long','country', 'time', 'genre1','genre2', 'genre3','serial')

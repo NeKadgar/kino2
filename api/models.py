@@ -3,10 +3,11 @@ from django.db import models
 # Create your models here.
 
 COUNTRY_CHOICES = (
+        ("США", "США"),
         ("Канада", "Канада"),
+        ("СССР", "СССР"),
         ("Россия", "Россия"),
         ("Великобритания", "Великобритания"),
-        ("США", "США"),
         ("Австралия", "Австралия"),
         ("Бельгия", "Бельгия"),
         ("Бразилия", "Бразилия"),
@@ -33,6 +34,7 @@ GENRE_CHOICES = (
         ("Криминальный", "Криминальный"),
         ("Комедия", "Комедия"),
         ("Музыкальный", "Музыкальный"),
+        ("Ужасы", "Ужасы"),
         ("Приключения", "Приключения"),
         ("Роман", "Роман"),
         ("Семейный", "Семейный"),
@@ -43,7 +45,7 @@ GENRE_CHOICES = (
         ("Другой", "Другой"),
     )
 class movie(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=30)
     description = models.TextField()
     image = models.TextField(default='')
     video = models.TextField(default='')
@@ -62,7 +64,7 @@ class movie(models.Model):
 
 
 class Top250(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=30)
     description = models.TextField()
     image = models.TextField(default='')
     video = models.TextField(default='')
@@ -81,7 +83,7 @@ class Top250(models.Model):
 
 class BestSerials(models.Model):
 
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=30)
     description = models.TextField()
     image = models.TextField(default='')
     video = models.TextField(default='')
@@ -99,8 +101,8 @@ class BestSerials(models.Model):
         return self.title
 
 
-class TopOfTheYear(models.Model):
-    title = models.CharField(max_length=100)
+class Serials(models.Model):
+    title = models.CharField(max_length=30)
     description = models.TextField()
     image = models.TextField(default='')
     video = models.TextField(default='')
@@ -117,8 +119,8 @@ class TopOfTheYear(models.Model):
     def __str__(self):
         return self.title
 
-class TopComedy(models.Model):
-    title = models.CharField(max_length=100)
+class Anime(models.Model):
+    title = models.CharField(max_length=30)
     description = models.TextField()
     image = models.TextField(default='')
     video = models.TextField(default='')
