@@ -17,7 +17,7 @@ class DefaultMixin(object):
 class MovieViewSet(DefaultMixin, viewsets.ReadOnlyModelViewSet):
     queryset = movie.objects.order_by('-id')
     serializer_class = MovieSerializer
-    search_fields = ('title', 'year', 'genre1', 'country' )
+    search_fields = ('title', 'year', 'genre1','genre2', 'genre3', 'country' )
     ordering_fields = ('id', 'rank')
 
 
@@ -25,25 +25,25 @@ class MovieViewSet(DefaultMixin, viewsets.ReadOnlyModelViewSet):
 class Top250ViewSet(DefaultMixin, viewsets.ReadOnlyModelViewSet):
     queryset = Top250.objects.order_by('id')
     serializer_class = Top250Serializer
-    search_fields = ('title', 'year', 'genre1', 'country' )
+    search_fields = ('title', 'year', 'genre1', 'genre2', 'genre3','country' )
     ordering_fields = ('id', 'rank')
 
 class BestSerialsViewSet(DefaultMixin, viewsets.ReadOnlyModelViewSet):
     queryset = BestSerials.objects.order_by('id')
     serializer_class = BestSerialsSerializer
-    search_fields = ('title', 'year', 'genre1', 'country' )
+    search_fields = ('title', 'year', 'genre1','genre2', 'genre3', 'country' )
     ordering_fields = ('id', 'rank')
 
 class SerialsViewSet(DefaultMixin, viewsets.ReadOnlyModelViewSet):
     queryset = Serials.objects.order_by('id')
     serializer_class = SerialsSerializer
-    search_fields = ('title', 'year', 'genre1', 'country' )
+    search_fields = ('title', 'year', 'genre1','genre2', 'genre3', 'country' )
     ordering_fields = ('id', 'rank')
 
 class AnimeViewSet(DefaultMixin, viewsets.ReadOnlyModelViewSet):
     queryset = Anime.objects.order_by('id')
     serializer_class = AnimeSerializer
-    search_fields = ('title', 'year', 'genre1', 'country' )
+    search_fields = ('title', 'year', 'genre1','genre2', 'genre3', 'country' )
     ordering_fields = ('id', 'rank')
 
 @api_view(['GET'])
