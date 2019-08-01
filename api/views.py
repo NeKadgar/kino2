@@ -34,13 +34,13 @@ class BestSerialsViewSet(DefaultMixin, viewsets.ReadOnlyModelViewSet):
     search_fields = ('title', 'year', 'genre1','genre2', 'genre3', 'country' )
     ordering_fields = ('id', 'rank')
 
-class SerialsViewSet(DefaultMixin, viewsets.ReadOnlyModelViewSet):
+class SerialsViewSet(DefaultMixin, viewsets.ModelViewSet):
     queryset = Serials.objects.order_by('id')
     serializer_class = SerialsSerializer
     search_fields = ('title', 'year', 'genre1','genre2', 'genre3', 'country' )
     ordering_fields = ('id', 'rank')
 
-class AnimeViewSet(DefaultMixin, viewsets.ReadOnlyModelViewSet):
+class AnimeViewSet(DefaultMixin, viewsets.ModelViewSet):
     queryset = Anime.objects.order_by('id')
     serializer_class = AnimeSerializer
     search_fields = ('title', 'year', 'genre1','genre2', 'genre3', 'country' )
