@@ -14,7 +14,7 @@ class DefaultMixin(object):
         filters.OrderingFilter,
     )
 
-class MovieViewSet(DefaultMixin, viewsets.ReadOnlyModelViewSet):
+class MovieViewSet(DefaultMixin, viewsets.ModelViewSet):
     queryset = movie.objects.order_by('-id')
     serializer_class = MovieSerializer
     search_fields = ('title', 'year', 'genre1','genre2', 'genre3', 'country' )
