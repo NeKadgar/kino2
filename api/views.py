@@ -22,7 +22,7 @@ class MovieViewSet(DefaultMixin, viewsets.ModelViewSet):
 
 
 
-class Top250ViewSet(DefaultMixin, viewsets.ReadOnlyModelViewSet):
+class Top250ViewSet(DefaultMixin, viewsets.ModelViewSet):
     queryset = Top250.objects.order_by('id')
     serializer_class = Top250Serializer
     search_fields = ('title', 'year', 'genre1', 'genre2', 'genre3','country' )
