@@ -45,7 +45,7 @@ GENRE_CHOICES = (
         ("Другой", "Другой"),
     )
 class movie(models.Model):
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=100)
     description = models.TextField()
     image = models.TextField(default='')
     video = models.TextField(default='')
@@ -64,7 +64,7 @@ class movie(models.Model):
 
 
 class Top250(models.Model):
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=100)
     description = models.TextField()
     image = models.TextField(default='')
     video = models.TextField(default='')
@@ -83,7 +83,7 @@ class Top250(models.Model):
 
 class BestSerials(models.Model):
 
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=100)
     description = models.TextField()
     image = models.TextField(default='')
     video = models.TextField(default='')
@@ -102,7 +102,7 @@ class BestSerials(models.Model):
 
 
 class Serials(models.Model):
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=100)
     description = models.TextField()
     image = models.TextField(default='')
     video = models.TextField(default='')
@@ -120,7 +120,7 @@ class Serials(models.Model):
         return self.title
 
 class Anime(models.Model):
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=100)
     description = models.TextField()
     image = models.TextField(default='')
     video = models.TextField(default='')
