@@ -19,13 +19,13 @@ from api.urls import router
 from django.conf import settings
 from django.conf.urls.static import static
 from activate.views import myview
-from api.views import sitemap
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('bsiua523hntv2.txt', myview),
+    path('bsiua523hntv2.txt/', myview),
     path('api/', include(router.urls)),
     path('movie/', include('api.urls')),
-    path('sitemap.xml', sitemap),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += [re_path(r'^.*',  include("start.urls"))]
