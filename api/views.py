@@ -5,6 +5,11 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.shortcuts import render
+
+# Create your views here.
+def sitemap(request):
+    return render(request, 'api/sitemap.xml', content_type='application/xhtml+xml')
 
 # Create your views here.
 class DefaultMixin(object):
